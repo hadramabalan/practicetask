@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.15.0.xsd">
+    <jdbc>
+        <driver>org.postgresql.Driver</driver>
+        <url>jdbc:postgresql://localhost:5432/your_database</url>
+        <user>your_username</user>
+        <password>your_password</password>
+    </jdbc>
+    <generator>
+        <name>org.jooq.codegen.JavaGenerator</name>
+        <database>
+            <name>org.jooq.meta.postgres.PostgresDatabase</name>
+            <includes>.*</includes>
+            <inputSchema>public</inputSchema>
+        </database>
+        <target>
+            <packageName>com.example.model.generated</packageName>
+            <directory>src/main/java</directory>
+        </target>
+    </generator>
+</configuration>
