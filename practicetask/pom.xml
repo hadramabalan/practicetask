@@ -72,18 +72,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Swagger -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-boot-starter</artifactId>
-			<version>3.0.0</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -101,11 +94,10 @@
 								<database>
 									<name>org.jooq.meta.postgres.PostgresDatabase</name>
 									<includes>.*</includes>
-									<excludes></excludes>
 									<inputSchema>public</inputSchema>
 								</database>
 								<target>
-									<packageName>com.example.model.generated</packageName>
+									<packageName>rondos.xdev.practicetask.generated</packageName>
 									<directory>src/main/java</directory>
 								</target>
 							</generator>
