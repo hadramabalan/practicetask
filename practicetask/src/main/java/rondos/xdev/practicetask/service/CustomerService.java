@@ -1,7 +1,8 @@
 package rondos.xdev.practicetask.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rondos.xdev.practicetask.dao.CustomerRepository;
+import rondos.xdev.practicetask.repository.CustomerRepository;
 import rondos.xdev.practicetask.model.Customer;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
+    @Autowired
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }

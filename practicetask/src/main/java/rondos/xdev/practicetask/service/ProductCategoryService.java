@@ -1,7 +1,7 @@
 package rondos.xdev.practicetask.service;
 
 import org.springframework.stereotype.Service;
-import rondos.xdev.practicetask.dao.ProductCategoryRepository;
+import rondos.xdev.practicetask.repository.ProductCategoryRepository;
 
 @Service
 public class ProductCategoryService {
