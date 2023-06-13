@@ -1,7 +1,6 @@
 package rondos.xdev.practicetask.service;
 
 import org.springframework.stereotype.Service;
-import rondos.xdev.practicetask.dao.ProductEntity;
 import rondos.xdev.practicetask.dao.ProductRepository;
 import rondos.xdev.practicetask.model.Product;
 
@@ -17,21 +16,8 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-        List<ProductEntity> productEntities = productRepository.findAll();
-        return productEntities.stream()
-                .map(this::mapToProduct)
-                .collect(Collectors.toList());
+        return productRepository.findAll();
     }
 
     // other service methods
-
-    private Product mapToProduct(ProductEntity productEntity) {
-        return new Product(
-                productEntity.getId(),
-                productEntity.getName(),
-                productEntity.getCategory(),
-                productEntity.getValidFrom(),
-                productEntity.getValidTo()
-        );
-    }
 }

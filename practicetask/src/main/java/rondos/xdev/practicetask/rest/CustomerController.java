@@ -21,6 +21,4 @@ public class CustomerController {
     public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
-
-    // other API endpoints and methods
 }

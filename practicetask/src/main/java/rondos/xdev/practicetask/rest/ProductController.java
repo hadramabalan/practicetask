@@ -21,6 +21,4 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
-
-    // other API endpoints and methods
 }
