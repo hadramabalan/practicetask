@@ -1,17 +1,15 @@
 package rondos.xdev.practicetask.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@AllArgsConstructor
+import java.util.List;
+
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 @Setter
 @Entity
@@ -23,6 +21,27 @@ public class Customer {
     private String firstName;
     @NotBlank
     private String lastName;
-
+    @OneToMany(mappedBy = "customer")
+    @JsonIgnore
+    private List<Product> products;
+    @NotBlank
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    //attributes used for example matching
+    //TODO change transient annotation to transient keyword after debugging (this way it shows up in query results)
+    @Transient
+    private int productsSizeMin;
+    @Transient
+    private int productsSizeMax;
+    @Transient
+    private int productsSize;
+    @Transient
+    private Long idLessThan;
+    @Transient
+    private Long idLessThanOrEqualTo;
+    @Transient
+    private Long idGreaterThan;
+    @Transient
+    private Long idGreaterThanOrEqualTo;
 }

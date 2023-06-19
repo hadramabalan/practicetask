@@ -2,13 +2,13 @@ package rondos.xdev.practicetask.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Getter
 @Setter
 @Entity
@@ -20,6 +20,9 @@ public class Product {
     private String name;
     @ManyToOne
     private ProductCategory category;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
     private LocalDate validFrom;
     private LocalDate validTo;
 }

@@ -1,20 +1,28 @@
 package rondos.xdev.practicetask.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import org.springframework.data.annotation.Id;
+import lombok.*;
 
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
 @Entity
 public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "category")
+    @JsonIgnore
+    private List<Product> products;
+
     @NotBlank
     private String name;
-
-    // constructors, getters, and setters
 }
