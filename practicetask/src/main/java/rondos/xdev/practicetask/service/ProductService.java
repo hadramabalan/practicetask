@@ -2,9 +2,8 @@ package rondos.xdev.practicetask.service;
 
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
-import rondos.xdev.practicetask.model.Customer;
-import rondos.xdev.practicetask.repository.ProductRepository;
 import rondos.xdev.practicetask.model.Product;
+import rondos.xdev.practicetask.repository.ProductRepository;
 
 import java.util.List;
 import java.util.Map;
