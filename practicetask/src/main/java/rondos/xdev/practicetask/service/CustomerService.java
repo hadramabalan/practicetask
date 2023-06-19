@@ -56,8 +56,8 @@ public class CustomerService {
 
     //TODO option for mass deletion?
     public void deleteCustomer(String customerId) {
-        if (customerRepository.existsById(Long.parseLong(customerId))){
-        customerRepository.deleteById(Long.parseLong(customerId));
+        if (customerRepository.existsById(Long.parseLong(customerId))) {
+            customerRepository.deleteById(Long.parseLong(customerId));
         } else {
             throw new ResourceNotFoundException("Customer not found");
         }

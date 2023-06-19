@@ -31,7 +31,7 @@ public class ProductService {
     }
 
     public void deleteProduct(String id) {
-        if (productRepository.existsById(Long.parseLong(id))){
+        if (productRepository.existsById(Long.parseLong(id))) {
             productRepository.deleteById(Long.parseLong(id));
         } else {
             throw new ResourceNotFoundException("Customer not found");

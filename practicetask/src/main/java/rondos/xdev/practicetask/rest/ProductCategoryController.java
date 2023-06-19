@@ -1,7 +1,6 @@
 package rondos.xdev.practicetask.rest;
 
 import org.springframework.web.bind.annotation.*;
-import rondos.xdev.practicetask.model.Customer;
 import rondos.xdev.practicetask.model.ProductCategory;
 import rondos.xdev.practicetask.service.ProductCategoryService;
 
@@ -22,16 +21,17 @@ public class ProductCategoryController {
     }
 
     @PostMapping
-    public ProductCategory createProductCategory(@RequestParam String name){
+    public ProductCategory createProductCategory(@RequestParam String name) {
         return productCategoryService.createProductCategory(name);
     }
+
     @PutMapping
-    public ProductCategory updateProductCategory(@RequestParam String id, String name){
+    public ProductCategory updateProductCategory(@RequestParam String id, String name) {
         return productCategoryService.updateProductCategory(id, name);
     }
 
     @DeleteMapping
-    public void deleteProductCategory(@RequestParam String id){
+    public void deleteProductCategory(@RequestParam String id) {
         productCategoryService.deleteProductCategory(id);
     }
 }

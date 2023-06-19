@@ -31,7 +31,7 @@ public class ProductController {
 
 
     @PutMapping
-    public Product updateProduct(@RequestParam String id, Map<String, Object> changes){
+    public Product updateProduct(@RequestParam String id, Map<String, Object> changes) {
         return productService.updateProduct(id, changes);
     }
 
