@@ -22,12 +22,12 @@ public class ProductCategoryController {
     }
 
     @PostMapping
-    public void createProductCategory(@RequestParam String name){
-        productCategoryService.createProductCategory(name);
+    public ProductCategory createProductCategory(@RequestParam String name){
+        return productCategoryService.createProductCategory(name);
     }
     @PutMapping
-    public void updateProductCategory(@RequestParam String id, String name){
-        productCategoryService.updateProductCategory(id, name);
+    public ProductCategory updateProductCategory(@RequestParam String id, String name){
+        return productCategoryService.updateProductCategory(id, name);
     }
 
     @DeleteMapping

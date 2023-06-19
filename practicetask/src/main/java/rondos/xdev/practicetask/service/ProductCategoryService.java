@@ -28,17 +28,20 @@ public class ProductCategoryService {
         }
     }
 
-    public void createProductCategory(String name) {
-        productCategoryRepository.save(ProductCategory.builder()
+    public ProductCategory createProductCategory(String name) {
+        ProductCategory productCategory = ProductCategory.builder()
                 .name(name)
-                .build());
+                .build();
+        productCategoryRepository.save(productCategory);
+        return productCategory;
     }
 
-    public void updateProductCategory(String id, String name) {
+    public ProductCategory updateProductCategory(String id, String name) {
         ProductCategory productCategory = productCategoryRepository.findById(Long.parseLong(id))
                 .orElseThrow(() -> new EntityNotFoundException("Product category not found with id: " + id));
         productCategory.setName(name);
         productCategoryRepository.save(productCategory);
+        return productCategory;
     }
 }
 
