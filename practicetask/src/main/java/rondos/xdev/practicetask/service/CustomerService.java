@@ -12,6 +12,7 @@ import rondos.xdev.practicetask.repository.CustomerRepository;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -26,7 +27,6 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    //TODO check return value
     public Customer createCustomer(String firstName, String lastName, String status) {
         Customer customer = Customer.builder()
                 .firstName(firstName)
@@ -37,11 +37,9 @@ public class CustomerService {
         return customer;
     }
 
-    //TODO check proper return value
     public Customer updateCustomer(String customerId, Map<String, Object> changes) {
         Customer customer = customerRepository.findById(Long.parseLong(customerId))
                 .orElseThrow(() -> new EntityNotFoundException("Customer not found with id: " + customerId));
-        //TODO should produce error if no changes are present (check here or up one layer?)
         if (changes.containsKey("firstName")) {
             customer.setFirstName((String) changes.get("firstName"));
         }
@@ -54,7 +52,6 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    //TODO option for mass deletion?
     public void deleteCustomer(String customerId) {
         if (customerRepository.existsById(Long.parseLong(customerId))) {
             customerRepository.deleteById(Long.parseLong(customerId));
@@ -63,7 +60,6 @@ public class CustomerService {
         }
     }
 
-    //TODO errors
     public List<Customer> getCustomersWithFilters(Map<String, Object> filters) {
         ExampleMatcher matcher = ExampleMatcher.matchingAll().withIgnoreCase();
 
@@ -116,6 +112,10 @@ public class CustomerService {
         Example<Customer> example = Example.of(customerExample, matcher);
 
         return customerRepository.findAll(example);
+    }
+
+    public Optional<Customer> getCustomerById(String userId) {
+        return customerRepository.findById(Long.parseLong(userId));
     }
 }
 
